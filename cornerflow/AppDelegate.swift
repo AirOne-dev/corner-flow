@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  sleepwatcher
+//  cornerflow
 //
 //  Created by Erwan Martin on 13/12/2022.
 //
@@ -71,7 +71,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc func showPopover(sender: AnyObject) {
-        let appTitle = createText(text: "SleepWatcher")
+        let appTitle = createText(text: "Cornerflow")
         appTitle.textColor = .gray
         
         let cornerActions = ["-", "Lock the screen + blur background", "Execute a script"]
@@ -84,7 +84,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let selectCornerBR = NSPopUpButton()
         selectCornerBR.addItems(withTitles: cornerActions)
         
-        let button = NSButton(title: "Quitter sleepwatcher ⌘Q", target: self, action: #selector(quitSleepwatcher))
+        let button = NSButton(title: "Quitter Cornerflow ⌘Q", target: self, action: #selector(quitCornerflow))
         button.keyEquivalent = "q"
         button.keyEquivalentModifierMask = [.command]
         button.isBordered = false
@@ -122,7 +122,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.myPopover.show(relativeTo: sender.bounds, of: sender as! NSView, preferredEdge: NSRectEdge.maxY)
     }
     
-    @objc func quitSleepwatcher() {
+    @objc func quitCornerflow() {
         NSApplication.shared.terminate(self)
     }
 

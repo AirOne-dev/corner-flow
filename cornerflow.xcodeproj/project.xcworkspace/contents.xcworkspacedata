@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:">
+      location = "self:/Users/erwan/Dev/Perso/corner-flow/cornerflow.xcodeproj">
    </FileRef>
 </Workspace>

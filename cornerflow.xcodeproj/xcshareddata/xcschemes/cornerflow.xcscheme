@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AECFB5252947F177007AF26E"
-               BuildableName = "sleepwatcher.app"
-               BlueprintName = "sleepwatcher"
-               ReferencedContainer = "container:sleepwatcher.xcodeproj">
+               BuildableName = "cornerflow.app"
+               BlueprintName = "cornerflow"
+               ReferencedContainer = "container:cornerflow.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -48,9 +48,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AECFB5252947F177007AF26E"
-            BuildableName = "sleepwatcher.app"
-            BlueprintName = "sleepwatcher"
-            ReferencedContainer = "container:sleepwatcher.xcodeproj">
+            BuildableName = "cornerflow.app"
+            BlueprintName = "cornerflow"
+            ReferencedContainer = "container:cornerflow.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -65,9 +65,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AECFB5252947F177007AF26E"
-            BuildableName = "sleepwatcher.app"
-            BlueprintName = "sleepwatcher"
-            ReferencedContainer = "container:sleepwatcher.xcodeproj">
+            BuildableName = "cornerflow.app"
+            BlueprintName = "cornerflow"
+            ReferencedContainer = "container:cornerflow.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

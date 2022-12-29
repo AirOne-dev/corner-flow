@@ -15,10 +15,10 @@
 /* Begin PBXFileReference section */
 		AE0145722949F45B00B10A7D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		AE87E264294A7FBB0003B300 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		AECFB5262947F177007AF26E /* sleepwatcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sleepwatcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AECFB5262947F177007AF26E /* cornerflow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cornerflow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AECFB5292947F177007AF26E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AECFB52D2947F177007AF26E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AECFB5322947F177007AF26E /* sleepwatcher.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = sleepwatcher.entitlements; sourceTree = "<group>"; };
+		AECFB5322947F177007AF26E /* cornerflow.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = cornerflow.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,7 +35,7 @@
 		AECFB51D2947F177007AF26E = {
 			isa = PBXGroup;
 			children = (
-				AECFB5282947F177007AF26E /* sleepwatcher */,
+				AECFB5282947F177007AF26E /* cornerflow */,
 				AECFB5272947F177007AF26E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,29 +43,29 @@
 		AECFB5272947F177007AF26E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AECFB5262947F177007AF26E /* sleepwatcher.app */,
+				AECFB5262947F177007AF26E /* cornerflow.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AECFB5282947F177007AF26E /* sleepwatcher */ = {
+		AECFB5282947F177007AF26E /* cornerflow */ = {
 			isa = PBXGroup;
 			children = (
 				AE87E264294A7FBB0003B300 /* Info.plist */,
 				AECFB5292947F177007AF26E /* AppDelegate.swift */,
 				AECFB52D2947F177007AF26E /* Assets.xcassets */,
-				AECFB5322947F177007AF26E /* sleepwatcher.entitlements */,
+				AECFB5322947F177007AF26E /* cornerflow.entitlements */,
 				AE0145722949F45B00B10A7D /* main.swift */,
 			);
-			path = sleepwatcher;
+			path = cornerflow;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AECFB5252947F177007AF26E /* sleepwatcher */ = {
+		AECFB5252947F177007AF26E /* cornerflow */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AECFB5352947F177007AF26E /* Build configuration list for PBXNativeTarget "sleepwatcher" */;
+			buildConfigurationList = AECFB5352947F177007AF26E /* Build configuration list for PBXNativeTarget "cornerflow" */;
 			buildPhases = (
 				AECFB5222947F177007AF26E /* Sources */,
 				AECFB5232947F177007AF26E /* Frameworks */,
@@ -75,9 +75,9 @@
 			);
 			dependencies = (
 			);
-			name = sleepwatcher;
+			name = cornerflow;
 			productName = sleepwatcher;
-			productReference = AECFB5262947F177007AF26E /* sleepwatcher.app */;
+			productReference = AECFB5262947F177007AF26E /* cornerflow.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -95,7 +95,7 @@
 					};
 				};
 			};
-			buildConfigurationList = AECFB5212947F177007AF26E /* Build configuration list for PBXProject "sleepwatcher" */;
+			buildConfigurationList = AECFB5212947F177007AF26E /* Build configuration list for PBXProject "cornerflow" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -108,7 +108,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AECFB5252947F177007AF26E /* sleepwatcher */,
+				AECFB5252947F177007AF26E /* cornerflow */,
 			);
 		};
 /* End PBXProject section */
@@ -265,15 +265,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = sleepwatcher/sleepwatcher.entitlements;
+				CODE_SIGN_ENTITLEMENTS = cornerflow/cornerflow.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W6SUBGY7G6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = sleepwatcher/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = SleepWatcher;
+				INFOPLIST_FILE = cornerflow/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Cornerflow;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_LSBackgroundOnly = NO;
 				INFOPLIST_KEY_LSUIElement = YES;
@@ -286,7 +287,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.erwan.sleepwatcher;
+				PRODUCT_BUNDLE_IDENTIFIER = com.erwan.cornerflow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -298,15 +299,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = sleepwatcher/sleepwatcher.entitlements;
+				CODE_SIGN_ENTITLEMENTS = cornerflow/cornerflow.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W6SUBGY7G6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = sleepwatcher/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = SleepWatcher;
+				INFOPLIST_FILE = cornerflow/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Cornerflow;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_LSBackgroundOnly = NO;
 				INFOPLIST_KEY_LSUIElement = YES;
@@ -319,7 +321,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.erwan.sleepwatcher;
+				PRODUCT_BUNDLE_IDENTIFIER = com.erwan.cornerflow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -329,7 +331,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AECFB5212947F177007AF26E /* Build configuration list for PBXProject "sleepwatcher" */ = {
+		AECFB5212947F177007AF26E /* Build configuration list for PBXProject "cornerflow" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AECFB5332947F177007AF26E /* Debug */,
@@ -338,7 +340,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AECFB5352947F177007AF26E /* Build configuration list for PBXNativeTarget "sleepwatcher" */ = {
+		AECFB5352947F177007AF26E /* Build configuration list for PBXNativeTarget "cornerflow" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AECFB5362947F177007AF26E /* Debug */,
