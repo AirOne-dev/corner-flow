@@ -13,6 +13,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var statusBar: NSStatusItem!
     var popoverIsOpen = false
     var isLocking = false;
+    var preferences = UserDefaults.standard
     
     struct CurrentWallpaperPaths {
         var screen : NSScreen
@@ -23,6 +24,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var dnc: DistributedNotificationCenter!
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        if((preferences.object(forKey: "corners") as? [String: Int] ?? [:]).count != 4) {
+            preferences.set(["top-left": 0, "top-right": 0, "bottom-left": 0, "bottom-right": 0], forKey: "corners")
+        }
+        // preferences.object(forKey: "corners") as! [String: Int]
+        
         myPopover = NSPopover();
         statusBar = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         if let button = statusBar.button {
@@ -71,18 +77,31 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc func showPopover(sender: AnyObject) {
+        let cornersPreferences = preferences.object(forKey: "corners") as! [String: Int]
+        
         let appTitle = createText(text: "Cornerflow")
         appTitle.textColor = .gray
         
         let cornerActions = ["-", "Lock the screen + blur background", "Execute a script"]
         let selectCornerTL = NSPopUpButton()
         selectCornerTL.addItems(withTitles: cornerActions)
+        selectCornerTL.selectItem(at: cornersPreferences["top-left"] ?? 0)
+        selectCornerTL.action = #selector(popUpButtonTopLeft(_:))
+        
         let selectCornerTR = NSPopUpButton()
         selectCornerTR.addItems(withTitles: cornerActions)
+        selectCornerTR.selectItem(at: cornersPreferences["top-right"] ?? 0)
+        selectCornerTR.action = #selector(popUpButtonTopRight(_:))
+        
         let selectCornerBL = NSPopUpButton()
         selectCornerBL.addItems(withTitles: cornerActions)
+        selectCornerBL.selectItem(at: cornersPreferences["bottom-left"] ?? 0)
+        selectCornerBL.action = #selector(popUpButtonBottomLeft(_:))
+        
         let selectCornerBR = NSPopUpButton()
         selectCornerBR.addItems(withTitles: cornerActions)
+        selectCornerBR.selectItem(at: cornersPreferences["bottom-right"] ?? 0)
+        selectCornerBR.action = #selector(popUpButtonBottomRight(_:))
         
         let button = NSButton(title: "Quitter Cornerflow ⌘Q", target: self, action: #selector(quitCornerflow))
         button.keyEquivalent = "q"
@@ -120,6 +139,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.myPopover.behavior = .transient
         self.myPopover.animates = true
         self.myPopover.show(relativeTo: sender.bounds, of: sender as! NSView, preferredEdge: NSRectEdge.maxY)
+    }
+    
+    @objc func popUpButtonTopLeft(_ sender: NSPopUpButton) { setPopupPreference(popupName: "top-left", selectedItem: sender.indexOfSelectedItem) }
+    @objc func popUpButtonTopRight(_ sender: NSPopUpButton) { setPopupPreference(popupName: "top-right", selectedItem: sender.indexOfSelectedItem) }
+    @objc func popUpButtonBottomLeft(_ sender: NSPopUpButton) { setPopupPreference(popupName: "bottom-left", selectedItem: sender.indexOfSelectedItem) }
+    @objc func popUpButtonBottomRight(_ sender: NSPopUpButton) { setPopupPreference(popupName: "bottom-right", selectedItem: sender.indexOfSelectedItem) }
+    
+    func setPopupPreference(popupName: String, selectedItem: Int) {
+        var cornersPreferences = preferences.object(forKey: "corners") as? [String: Int] ?? [:]
+        cornersPreferences[popupName] = selectedItem
+        preferences.set(cornersPreferences, forKey: "corners")
     }
     
     @objc func quitCornerflow() {
