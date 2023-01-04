@@ -9,6 +9,21 @@ import Cocoa
 import Foundation
 
 class AppDelegate: NSObject, NSApplicationDelegate {
+    let cornerActions = [
+        0: "-",
+        2: "Mission Control",
+        3: "Show application windows",
+        4: "Desktop",
+        5: "Start screen saver",
+        6: "Disable screen saver",
+        7: "Dashboard",
+        10: "Put display to sleep",
+        11: "Launchpad",
+        12: "Notification Center",
+        13: "Lock the screen + blur background",
+        14: "Execute a script"
+    ];
+    
     var myPopover: NSPopover!
     var statusBar: NSStatusItem!
     var popoverIsOpen = false
@@ -84,24 +99,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let appTitle = createText(text: "Cornerflow")
         appTitle.textColor = .gray
         
-        let cornerActions = ["-", "Lock the screen + blur background", "Execute a script"]
         let selectCornerTL = NSPopUpButton()
-        selectCornerTL.addItems(withTitles: cornerActions)
+        selectCornerTL.addItems(withTitles: cornerActions.values.map { $0 })
         selectCornerTL.selectItem(at: cornersPreferences["top-left"] ?? 0)
         selectCornerTL.action = #selector(popUpButtonTopLeft(_:))
         
         let selectCornerTR = NSPopUpButton()
-        selectCornerTR.addItems(withTitles: cornerActions)
+        selectCornerTR.addItems(withTitles: cornerActions.values.map { $0 })
         selectCornerTR.selectItem(at: cornersPreferences["top-right"] ?? 0)
         selectCornerTR.action = #selector(popUpButtonTopRight(_:))
         
         let selectCornerBL = NSPopUpButton()
-        selectCornerBL.addItems(withTitles: cornerActions)
+        selectCornerBL.addItems(withTitles: cornerActions.values.map { $0 })
         selectCornerBL.selectItem(at: cornersPreferences["bottom-left"] ?? 0)
         selectCornerBL.action = #selector(popUpButtonBottomLeft(_:))
         
         let selectCornerBR = NSPopUpButton()
-        selectCornerBR.addItems(withTitles: cornerActions)
+        selectCornerBR.addItems(withTitles: cornerActions.values.map { $0 })
         selectCornerBR.selectItem(at: cornersPreferences["bottom-right"] ?? 0)
         selectCornerBR.action = #selector(popUpButtonBottomRight(_:))
         
