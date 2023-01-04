@@ -77,6 +77,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc func showPopover(sender: AnyObject) {
+        getMachineCornersInfo();
+        
         let cornersPreferences = preferences.object(forKey: "corners") as! [String: Int]
         
         let appTitle = createText(text: "Cornerflow")
@@ -186,7 +188,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.currentWallpaperPaths = []
         
         
-        for screen in NSScreen.screens {
+        for (index, screen) in NSScreen.screens.enumerated() {
             // Récupération du chemin du fond d'écran de l'écran
             self.currentWallpaperPaths.append(CurrentWallpaperPaths(
                 screen: screen,
@@ -208,7 +210,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let outputCGImage = context.createCGImage(outputImage, from: inputImage!.extent)!
             let outputNSImage = NSImage(cgImage: outputCGImage, size: inputImage!.extent.size)
             let outputData = outputNSImage.tiffRepresentation!
-            let outputURL = URL(fileURLWithPath: "/tmp/blurred-screenshot.tiff")
+            let outputURL = URL(fileURLWithPath: "/tmp/blurred-screenshot-" + String(index) + ".tiff")
             do {
                 try outputData.write(to: outputURL)
                 self.setWallpaper(screen: screen, wallpaperPath: outputURL)
@@ -219,6 +221,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.lockTheScreen()
     }
     
+    
+    func checkScreenshotPermission() -> Bool {
+      let image: CGImage?
+      do {
+          image = try CGWindowListCreateImage(.infinite, .optionOnScreenOnly, CGWindowID(0), CGWindowImageOption.nominalResolution)
+      } catch let e as NSError {
+          print(e)
+        return false
+      }
+        if image != nil {
+        return true
+      } else {
+        return false
+      }
+    }
+
+    
     func lockTheScreen() {
         let libHandle = dlopen("/System/Library/PrivateFrameworks/login.framework/Versions/Current/login", RTLD_LAZY)
             let sym = dlsym(libHandle, "SACLockScreenImmediate")
@@ -226,5 +245,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
             let SACLockScreenImmediate = unsafeBitCast(sym, to: myFunction.self)
             SACLockScreenImmediate()
+    }
+    
+    func getMachineCornersInfo() {
+        let corners = ["wvous-tl-corner", "wvous-tr-corner", "wvous-bl-corner", "wvous-br-corner"]
+        var activeCorners = [String: Any]()
+
+        let userDefaults = UserDefaults(suiteName: "com.apple.dock")
+        userDefaults?.set(true, forKey: "ApplicationType")
+
+        for (key, value) in userDefaults!.dictionaryRepresentation() {
+            if(corners.contains(key)) { activeCorners[key] = value }
+        }
+        
+        print(activeCorners)
     }
 }
